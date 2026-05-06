@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>WNS Challenge</title>
+    <link rel="stylesheet" href={{ url_for('static', filename='style.css') }}>
+</head>
+
+<body>
+<div class="main-container">
+  <div class="header">
+    <h1>Consulta de Platos</h1>
+    <p>Selecciona un plato y fecha para ver ingredientes y costo</p>
+  </div>
+
+  <form action="/handle_data" method="post" class="search-form">
+    <div class="form-group">
+      <label for="meals">Plato:</label>
+      <select name="meals" id="meals">
+        {% for meal in meals %}
+          <option value="{{ meal }}">{{ meal.capitalize() }}</option>
+        {% endfor %}
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="date">Fecha:</label>
+      <input type="date" name="date" id="date" value={{ today }} />
+    </div>
+
+    <button type="button" onclick="loadData()" class="btn-consultar">Consultar</button>
+  </form>
+
+  <div id="results-container" class="results-container hidden">
+
+
+    <div class="ingredients-section">
+      <h2>Ingredientes</h2>
+      <ul id="ingredients" class="ingredients-list"></ul>
+    </div>
+
+    <div class="recipe-section">
+      <h2>Receta</h2>
+      <div id="recipe" class="recipe-content"></div>
+    </div>
+
+    <div class="totals-section">
+      <h2>Resumen de Costos</h2>
+      <div class="totals-container">
+        <div class="total-box">
+          <div class="total-label">Total en Pesos</div>
+          <div id="total" class="total-value">--</div>
+        </div>
+        <div class="total-box">
+          <div class="total-label">Total en USD</div>
+          <div id="total_usd" class="total-value">--</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="error-modal" class="modal hidden">
+  <div class="modal-content">
+    <div id="modal-message" class="modal-message"></div>
+    <button onclick="closeModal()" class="modal-btn">Aceptar</button>
+  </div>
+</div>
+
+<script type='text/javascript' src={{ url_for('static', filename='main.js') }}></script>
+</body>
+</html>

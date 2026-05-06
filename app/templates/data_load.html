@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Carga de Datos - WNS Challenge</title>
+    <link rel="stylesheet" href={{ url_for('static', filename='style.css') }}>
+</head>
+
+<body>
+<div class="main-container">
+  <div class="header">
+    <h1>Carga de Datos</h1>
+    <p>Arrastrá los archivos de precios para actualizar la base de datos</p>
+  </div>
+
+  <form method="POST" action="/api/loading" enctype="multipart/form-data" class="upload-form">
+    <label for="file-input" class="drop-zone" id="drop-zone">
+      <svg class="drop-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+        <polyline points="17 8 12 3 7 8"></polyline>
+        <line x1="12" y1="3" x2="12" y2="15"></line>
+      </svg>
+      <span id="drop-text">Arrastrá los archivos o hacé click</span>
+    </label>
+    <input type="file" id="file-input" name="input_file" multiple hidden>
+    <ul id="file-list"></ul>
+    <div id="file-count" class="file-count">Se requieren 3 archivos (0/3)</div>
+    <button type="submit" class="btn-consultar" id="submit-btn" disabled>Subir Archivos</button>
+  </form>
+</div>
+<script type='text/javascript' src={{ url_for('static', filename='main.js') }}></script>
+</body>
+</html>

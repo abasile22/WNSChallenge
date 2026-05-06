@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pip3 install *)",
+      "Bash(curl -v -X POST http://localhost:5000/price-calculator -F input_file=@/tmp/test_meals.md -F input_file=@/tmp/test_prices.xlsx -F input_file=@/tmp/test_prices.pdf)",
+      "Bash(curl -s -X POST http://localhost:5000/price-calculator -F input_file=@/tmp/test_meals.md -F input_file=@/tmp/test_prices.xlsx -F input_file=@/tmp/test_prices.pdf)",
+      "Read(//private/tmp/**)",
+      "Bash(awk '{print $2}')",
+      "Bash(xargs kill *)",
+      "Bash(python3 /Users/abasile/Projects/WNSChallenge/app.py)",
+      "Bash(curl -s http://localhost:5000/api/check-load-status)",
+      "Bash(curl -s http://localhost:5000/index)",
+      "Bash(curl -s -X POST http://localhost:5000/api/data -H 'Content-Type: application/json' -d '{\"meal\": \"pasta carbonara\", \"date\": \"2026-05-03\"}')",
+      "Bash(python3 -m json.tool)"
+    ]
+  }
+}
