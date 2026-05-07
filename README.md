@@ -96,3 +96,8 @@ La solución no hace las suficientes validaciones, por lo que frente a cambios m
 
 ### Uso de IA
 Se utilizaron herramientas de inteligencia artificial como Claude Code y ChatGPT para la resolución de consultas, la estructuración del proyecto, la corrección de errores menores, la optimización de funciones, la generación de tests unitarios de cobertura y la mejora de la documentación.
+
+---
+<p align="center" >  
+  Agustin Basile - 2026 
+</p> 
