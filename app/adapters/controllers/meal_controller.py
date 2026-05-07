@@ -12,7 +12,6 @@ class MealController:
 
     def get_meal_data(self, meal_name: str, date: str):
         try:
-            logger.info(f"Consultando: meal={meal_name}, date={date}")
             meal_data = self.get_meal_data_use_case.execute(meal_name, date)
 
             return jsonify({

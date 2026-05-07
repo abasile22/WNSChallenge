@@ -5,12 +5,11 @@ import pytesseract
 from PIL import ImageEnhance
 from pdf2image import convert_from_bytes
 
-from app.services.services import Services
-
 logger = logging.getLogger(__name__)
 
-
-class OCR(Services):
+class OCR:
+    def __init__(self, file_bytes):
+        self.file_bytes = file_bytes
 
     def read(self):
         try:
@@ -39,12 +38,10 @@ class OCR(Services):
     def _parse_lines(self, lines):
         results = []
         current_name = None
-        logger.info(f"Parseando {len(lines)} líneas del OCR")
         for line in lines:
             price_match = re.search(r"\$\s*([\d\.\,]+)", line)
             if price_match and current_name:
                 price = int(price_match.group(1).replace(".", "").replace(",", ""))
-                logger.info(f"Precio encontrado: {current_name} = ${price}")
                 results.append({
                     "name": current_name.lower(),
                     "price": price
@@ -52,11 +49,7 @@ class OCR(Services):
                 current_name = None
                 continue
             if self._is_name(line):
-                logger.info(f"Nombre detectado: {line}")
                 current_name = line
-            else:
-                logger.debug(f"Línea ignorada (no es nombre): {line}")
-        logger.info(f"Total de precios extraídos: {len(results)}")
         return results
 
     def _is_name(self, line):

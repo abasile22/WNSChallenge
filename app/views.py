@@ -66,12 +66,7 @@ class Routes:
 
         @self.app.route("/api/meals/data", methods=["POST"])
         def get_meal_data():
-            logger.info(f"Request recibido: {request.method}")
-            logger.info(f"Content-Type: {request.content_type}")
-            logger.info(f"Body raw: {request.data}")
-
             body = request.get_json()
-            logger.info(f"Body parseado: {body}")
 
             if not body:
                 logger.error("Body vacío o no es JSON")
@@ -80,8 +75,6 @@ class Routes:
             if 'meal' not in body or 'date' not in body:
                 logger.error(f"Faltan campos. Body: {body}")
                 return jsonify({"error": "Faltan campos: meal, date"}), 400
-
-            logger.info(f"Date: {body['date']} {date.today()}")
 
             tz_arg = timezone(timedelta(hours=-3))
             today = datetime.now(tz_arg).date()
@@ -105,7 +98,6 @@ class Routes:
                 }
                 for f in files
             ]
-            logger.info(f"Procesando {len(files_data)} archivos: {[f['filename'] for f in files_data]}")
 
             # Procesar directamente con use case
             from app.use_cases.process_files import ProcessFilesUseCase
@@ -120,6 +112,5 @@ class Routes:
         except Exception as e:
             logger.error(f"Excepción durante procesamiento: {str(e)}", exc_info=True)
         finally:
-            logger.info("Marcando procesamiento como completo")
             with self.state_lock:
                 self.loading_state["complete"] = True

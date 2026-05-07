@@ -27,17 +27,13 @@ class ProcessFilesUseCase:
 
         if "md" in filename:
             self._process_markdown(content)
-            logger.info("Se proceso el md")
         elif "pdf" in filename:
             self._process_pdf(content)
-            logger.info("Se proceso el pdf")
         elif "xls" in filename:
             self._process_excel(content)
-            logger.info("Se proceso el xls")
 
     def _process_markdown(self, content: bytes) -> None:
         meals = MarkdownReader(content).read()
-        logger.info(f"MEALS: {meals}")
         for meal in meals:
             meal_id = self.meal_repository.insert_meal(meal['meal'])
             ingredients = DataParser().normalize_ingredients(meal['ingredients'])
@@ -46,11 +42,8 @@ class ProcessFilesUseCase:
                 self.meal_repository.insert_ingredients(ingredient, meal_id)
 
     def _process_pdf(self, content: bytes) -> None:
-        logger.info(f"LLEGA A FUNCION DE PROCESAMIENTO")
         prices = OCR(content).read()
-        logger.info(f"PRICES: {prices}")
         for price in prices:
-            logger.info(f"Price en OCR: {price}")
             self.meal_repository.insert_prices(price['name'], price['price'])
 
     def _process_excel(self, content: bytes) -> None:

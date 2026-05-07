@@ -1,10 +1,12 @@
 import io
 import re
+import logging
 
-from app.services.services import Services
+logger = logging.getLogger(__name__)
 
-
-class MarkdownReader(Services):
+class MarkdownReader:
+    def __init__(self, file_bytes):
+        self.file_bytes = file_bytes
 
     def read(self):
         f = io.StringIO(self.file_bytes.decode('utf-8')).readlines()
