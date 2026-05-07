@@ -1,7 +1,7 @@
 <p align="center" >  
   <img width="200px" src="app/static/assets/wns-logo.png" />  
 </p>  
-<h1 align="center">WNS Challenge :: Meal Calculator</h1>  
+<h1 align="center">WNS Challenge :: Calculador de Platos</h1>  
 
 
 ## Indice

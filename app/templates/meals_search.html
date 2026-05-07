@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>WNS Challenge</title>
+    <meta charset="UTF-8">
+    <title>Calculador - WNS Challenge</title>
     <link rel="stylesheet" href={{ url_for('static', filename='style.css') }}>
 </head>
 
@@ -9,7 +10,7 @@
 <div class="main-container">
   <div class="header">
     <h1>Consulta de Platos</h1>
-    <p>Selecciona un plato y fecha para ver los ingredientes y los costos</p>
+    <p>Selecciona un plato y una fecha para ver los ingredientes y los costos</p>
   </div>
 
   <form action="/handle_data" method="post" class="search-form">
