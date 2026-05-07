@@ -1,8 +1,11 @@
 <p align="center" >  
-  <img width="200px" src="app/static/assets/wns-logo.png" />  
+  <img width="200px" src="app/static/assets/wns_logo.png" />  
 </p>  
-<h1 align="center">WNS Challenge :: Calculador de Platos</h1>  
+<h1 align="center">WNS Challenge :: Calculador de Platos</h1>
 
+<p align="center" >  
+  <img src="app/static/assets/app_usage.gif" />  
+</p>
 
 ## Indice
 - [Resumen](#resumen)  
