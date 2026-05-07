@@ -4,7 +4,7 @@
 <h1 align="center">WNS Challenge :: Meal Calculator</h1>  
 
 
-### Indice
+## Indice
 - [Resumen](#resumen)  
 - [Implementación](#implementación)  
   - [Arquitectura](#arquitectura)  
@@ -62,7 +62,7 @@ Se detallan los pasos para la utilización de la interfaz:
 ### Carga de datos 
 1. Acceder a la sección de carga de archivos.  
 2. Preparar los archivos con los datos de platos, ingredientes y precios.  
-3. Seleccionar los archivos haciendo clic para cargar los tres archivos.  
+3. Seleccionar los archivos (provistos con el challenge) haciendo clic para cargarlos.  
 4. Verificar la carga comprobando que se muestre “3 archivos cargados - listo para procesar”.  
 5. Presionar el botón “Subir Archivos”.  
 6. Confirmar la carga verificando que, al finalizar, se redirija a la sección de consulta.  
@@ -71,7 +71,7 @@ Se detallan los pasos para la utilización de la interfaz:
 1. Seleccionar un plato en el selector "Plato", eligiendo el que se desea consultar.  
 2. Elegir una fecha en el campo "Fecha", seleccionando una fecha válida (máximo 30 días atrás).  
 3. Presionar "Consultar" para cargar los datos del plato.  
-4. Revisar los resultados  
+4. Revisar los resultados:
    - Ingredientes: ver la lista completa con pesos en gramos.  
    - Receta: visualizar la descripción del plato.  
    - Resumen de costos: consultar el total en pesos y en dólares.  
