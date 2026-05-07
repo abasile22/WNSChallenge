@@ -5,22 +5,22 @@
 
 
 ### Indice
-- [Resumen](#Resumen)  
-- [Implementación](#Implementación)  
-  - [Arquitectura](#Arquitectura)  
-  - [Base de datos](#Base de datos)  
-- [Ejecutar aplicación](#Ejecutar aplicación)  
-  - [Prerequisito](#Prerequisito)  
-  - [Pasos de ejecución](#Pasos de ejecución) 
-- [Modo de uso](#Modo de uso)
-  - [Carga de datos](#Carga de datos)  
-  - [Consulta de precios de platos](#Consulta de precios de platos)  
-- [Consideraciones](#Consideraciones)  
-  - [Fortalezas](#Fortalezas)
-  - [Debilidades](#Debilidades)
-  - [Despliegue](#Despliegue)
-  - [Limitaciones](#Limitaciones)
-  - [Uso de IA](#Uso de IA)
+- [Resumen](#resumen)  
+- [Implementación](#implementación)  
+  - [Arquitectura](#arquitectura)  
+  - [Base de datos](#base-de-datos)  
+- [Ejecutar la aplicación](#ejecutar-la-aplicación)  
+  - [Prerequisitos](#prerequisitos)  
+  - [Pasos de ejecución](#pasos-de-ejecución) 
+- [Modo de uso](#modo-de-uso)
+  - [Carga de datos](#carga-de-datos)  
+  - [Consulta de precios de platos](#consulta-de-precios-de-platos)  
+- [Consideraciones](#consideraciones)  
+  - [Fortalezas](#fortalezas)
+  - [Debilidades](#debilidades)
+  - [Despliegue](#despliegue)
+  - [Limitaciones](#limitaciones)
+  - [Uso de IA](#uso-de-ia)
 
 ## Resumen  
 La aplicación es un **calculador de precios de platos** que permite cargar información de platos e ingredientes mediante la importación masiva de archivos. Posteriormente, posibilita consultar el costo total de cualquier plato según una fecha determinada, mostrando el listado de ingredientes con sus cantidades y el costo total tanto en pesos argentinos como en dólares.  
@@ -39,13 +39,14 @@ Se utilizo SQLite como motor de base de datos. Se modelaron cuatro tablas con el
 - Tabla `ingredients` donde se almacenan los ingredientes de las comidas.
 - Tabla `recipes` donde se almacenan las recetas de las comidas. 
 - Tabla `prices` donde se almacenan los precios de los ingredientes. 
+
 A excepción de la tabla prices*, todas las tablas están interrelacionadas según conveniencia para consultar los datos y todas se encuentran debidamente indexadas para un rápido acceso a los registros. 
 
 \*Al modelar las tablas, no fue posible relacionar directamente la tabla `prices` con la tabla `ingredients`, ya que los ingredientes están asociados a los platos y un mismo ingrediente puede aparecer múltiples veces. Esto impide establecer una relación uno a uno entre cada ingrediente y su precio, dado que el mismo no varía entre platos.
 Como mejora, se podría incorporar una tabla padre de ingredientes, donde cada ingrediente exista de manera única y desde allí relacionarlo tanto con sus precios como con los platos que lo utilizan. En este caso, se optó por una solución más simple, dejando como efecto colateral una tabla sin relaciones directas.
 
-## Ejecutar aplicación  
-### Prerequisito
+## Ejecutar la aplicación  
+### Prerequisitos
 Se requiere contar con Docker instalado en el sistema.
 
 ### Pasos de ejecución
@@ -91,4 +92,4 @@ Para desplegar la solución más allá del entorno local, se debería implementa
 La solución no hace las suficientes validaciones, por lo que frente a cambios menores puede verse afectada la experiencia del usuario. Esto se evidencia al cambiar los archivos de datos donde la interfaz permite avanzar en el flujo pero no muestra ninguna información. 
 
 ### Uso de IA
-Se utilizo Claude Code y ChatGPT para la resolución de consultas, la estructuración del proyecto, corrección de errores menores, optimización de funciones, tests de cobertura unitarios y mejora de la documentación. 
+Se utilizaron herramientas de inteligencia artificial como Claude Code y ChatGPT para la resolución de consultas, la estructuración del proyecto, la corrección de errores menores, la optimización de funciones, la generación de tests unitarios de cobertura y la mejora de la documentación.
